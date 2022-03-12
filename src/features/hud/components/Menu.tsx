@@ -4,9 +4,8 @@ import { useActor } from "@xstate/react";
 import { Button } from "components/ui/Button";
 import { OuterPanel, Panel } from "components/ui/Panel";
 
-import { Section, useScrollIntoView } from "lib/utils/useScrollIntoView";
+import { Section, useScrollIntoView } from "lib/utils/hooks/useScrollIntoView";
 import * as Auth from "features/auth/lib/Provider";
-import { sync } from "features/game/actions/sync";
 import { Context } from "features/game/GameProvider";
 
 import { Share } from "./Share";
@@ -16,7 +15,6 @@ import mobileMenu from "assets/icons/hamburger_menu.png";
 import questionMark from "assets/icons/expression_confused.png";
 import radish from "assets/icons/radish.png";
 import water from "assets/icons/expression_working.png";
-import token from "assets/icons/token.gif";
 import timer from "assets/icons/timer.png";
 import { useTour } from "@reactour/tour";
 import { TourStep } from "features/game/lib/Tour";
@@ -28,7 +26,7 @@ export const Menu = () => {
   const { authService } = useContext(Auth.Context);
   const { gameService } = useContext(Context);
   const [authState] = useActor(authService);
-  const [gameState, send] = useActor(gameService);
+  const [gameState] = useActor(gameService);
 
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrollIntoView] = useScrollIntoView();
@@ -42,6 +40,7 @@ export const Menu = () => {
         window.location.href.includes("?")
           ? window.location.href.split("?")[0]
           : window.location.href
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       }?farmId=${authState.context.farmId!.toString()}`
     : "https://sunflower-land.com/play/";
 

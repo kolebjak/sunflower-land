@@ -1,5 +1,3 @@
-import { MutableRefObject, useEffect, useState } from "react";
-
 export enum Section {
   Crops = "crops",
   Water = "water",
@@ -12,7 +10,6 @@ export const useScrollIntoView = () => {
   const scrollIntoView = (id: Section) => {
     const el = document.getElementById(id);
 
-    console.log({ scrollIntoView: id });
     el?.scrollIntoView({
       behavior: "smooth",
       block: "center",
