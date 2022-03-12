@@ -14,7 +14,8 @@ import { Action } from "components/ui/Action";
 import { MarketItems } from "./MarketItems";
 import { useTour } from "@reactour/tour";
 import { TourStep } from "features/game/lib/Tour";
-import { Section } from "lib/utils/hooks/useScrollIntoView";
+import { Section } from "lib/utils/useScrollIntoView";
+import shopMP3 from "../../../assets/sound-effects/shop.mp3";
 
 export const Market: React.FC = () => {
   const { gameService } = useContext(Context);
@@ -29,7 +30,11 @@ export const Market: React.FC = () => {
   } = useTour();
 
   const handleMarketClick = () => {
+    const shopAudio = new Audio(shopMP3);
+    shopAudio.volume = 0.2;
+
     setIsOpen(true);
+    shopAudio.play();
     if (tourIsOpen && currentTourStep === TourStep.openShop) {
       setTimeout(() => {
         setCurrentTourStep(TourStep.openSellTab);

@@ -43,6 +43,7 @@ import sunflowerTombstone from "assets/nfts/sunflower_tombstone.png";
 import goldenCauliflower from "assets/nfts/golden_cauliflower.png";
 import crown from "assets/nfts/goblin_crown.png";
 import fountain from "assets/nfts/fountain.gif";
+import beaver from "assets/nfts/beaver.png";
 
 // Foods
 import flour from "assets/crops/wheat/flour.png";
@@ -66,6 +67,7 @@ import { RESOURCES } from "./resources";
 export type ItemDetails = {
   description: string;
   image: any;
+  secondaryImage?: any;
 };
 
 type Items = Record<InventoryItemName, ItemDetails>;
@@ -119,42 +121,52 @@ export const ITEM_DETAILS: Items = {
   "Sunflower Seed": {
     ...seeds["Sunflower Seed"],
     image: sunflowerSeed,
+    secondaryImage: sunflowerCrop,
   },
   "Potato Seed": {
     ...seeds["Potato Seed"],
     image: potatoSeed,
+    secondaryImage: potatoCrop,
   },
   "Pumpkin Seed": {
     ...seeds["Pumpkin Seed"],
     image: pumpkinSeed,
+    secondaryImage: pumpkinCrop,
   },
   "Carrot Seed": {
     ...seeds["Carrot Seed"],
     image: carrotSeed,
+    secondaryImage: carrotCrop,
   },
   "Cabbage Seed": {
     ...seeds["Cabbage Seed"],
     image: cabbageSeed,
+    secondaryImage: cabbageCrop,
   },
   "Beetroot Seed": {
     ...seeds["Beetroot Seed"],
     image: beetrootSeed,
+    secondaryImage: beetrootCrop,
   },
   "Cauliflower Seed": {
     ...seeds["Cauliflower Seed"],
     image: cauliflowerSeed,
+    secondaryImage: cauliflowerCrop,
   },
   "Parsnip Seed": {
     ...seeds["Parsnip Seed"],
     image: parsnipSeed,
+    secondaryImage: parsnipCrop,
   },
   "Radish Seed": {
     ...seeds["Radish Seed"],
     image: radishSeed,
+    secondaryImage: radishCrop,
   },
   "Wheat Seed": {
     ...seeds["Wheat Seed"],
     image: wheatSeed,
+    secondaryImage: wheatCrop,
   },
 
   // Resources
@@ -266,6 +278,10 @@ export const ITEM_DETAILS: Items = {
   Fountain: {
     ...LimitedItems["Fountain"],
     image: fountain,
+  },
+  Beaver: {
+    ...LimitedItems["Beaver"],
+    image: beaver,
   },
 
   // FOOD
